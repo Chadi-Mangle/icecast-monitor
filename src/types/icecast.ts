@@ -33,4 +33,5 @@ export interface IceCastStatusResponse {
 export interface IceCastMountpoint {
   name: string;
   url: string;
+  contentType: string;
 }
