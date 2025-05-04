@@ -36,6 +36,7 @@ export function getIceCastMountpointsList(
     return {
       name: sourceName,
       url: env.ICECAST + "/" + sourceName,
+      contentType: source.server_type,
     };
   });
 
