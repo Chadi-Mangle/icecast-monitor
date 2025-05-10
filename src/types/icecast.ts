@@ -13,7 +13,7 @@ export interface IceCastSource {
   server_type: string;
   stream_start: string;
   stream_start_iso8601: string;
-  dummy: null | string;
+  dummy?: null | string;
 }
 
 export interface IceCastStatus {

@@ -4,22 +4,27 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
+    "init": "node dist/init.js",  
     "start": "node dist/index.js"
   },
   "imports": {
     "#env": "./dist/env.js",
-    "#types": "dist/types/index.js",
-    "#utils/*": "./dist/utils/*.js"
+    "#types": "./dist/types/index.js",
+    "#utils/*": "./dist/utils/*.js",
+    "#database": "./dist/database.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.1",
     "dotenv": "^16.5.0",
     "hono": "^4.7.8",
+    "kysely": "^0.28.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20.11.17",
+    "better-sqlite3": "^11.9.1",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3"
   }

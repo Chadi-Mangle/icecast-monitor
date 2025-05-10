@@ -16,7 +16,7 @@ export async function getIceCastStatus(): Promise<IceCastStatus> {
   return statusIceCast.icestats;
 }
 
-export function getIceCastSources(
+export function extractIceCastSources(
   statusIceCast: IceCastStatus
 ): IceCastSource[] {
   const sourceIceCast = statusIceCast.source;
@@ -28,7 +28,7 @@ export function getIceCastSources(
   return [];
 }
 
-export function getIceCastMountpointsList(
+export function extractIceCastMountpoints(
   sourcesIceCast: IceCastSource[]
 ): IceCastMountpoint[] {
   const mountpointList = sourcesIceCast.map((source) => {
@@ -41,4 +41,10 @@ export function getIceCastMountpointsList(
   });
 
   return mountpointList;
+}
+
+export async function getIceCastMountpoints(): Promise<IceCastMountpoint[]> {
+  const status = await getIceCastStatus();
+  const sources = extractIceCastSources(status);
+  return extractIceCastMountpoints(sources);
 }
